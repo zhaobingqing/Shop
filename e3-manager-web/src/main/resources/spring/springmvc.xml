@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
@@ -11,13 +9,30 @@
 	<context:component-scan base-package="cn.e3mall.controller" />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
+	<context:property-placeholder location="classpath:conf/resource.properties" />
+	<!-- 文件上传解析器 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 最大值5M 5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	<dubbo:application name="e3-manager-web"/>
+	<dubbo:application name="e3-manager-web" />
 	<!-- 注册中心的地址 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.234.129:2181" />
-	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"></dubbo:reference>
+	<dubbo:registry protocol="zookeeper" address="192.168.25.129:2181" />
+	<dubbo:reference interface="cn.e3mall.service.ItemService"
+		id="itemService" />
+	<dubbo:reference interface="cn.e3mall.service.ItemCatService"
+		id="itemCatService" />
+	<dubbo:reference interface="cn.e3mall.content.service.ContentCategoryService"
+		id="contentCategoryService" />
+	<dubbo:reference interface="cn.e3mall.content.service.ContentService"
+		id="contentService" />
+	<dubbo:reference interface="cn.e3mall.search.service.SearchItemService"
+		id="searchItemService" />
 </beans>

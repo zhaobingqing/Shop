@@ -17,7 +17,8 @@
         </tr>
     </thead>
 </table>
-<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'" style="width:80%;height:80%;padding:10px;">
+<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:80%;height:80%;padding:10px;">
+	<jsp:include page="item-edit.jsp"></jsp:include>
 </div>
 <script>
 
@@ -53,9 +54,10 @@
         	}
         	
         	$("#itemEditWindow").window({
-        		onLoad :function(){
+        		onOpen :function(){
         			//回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
+        			
         			data.priceView = E3.formatPrice(data.price);
         			$("#itemeEditForm").form("load",data);
         			

@@ -33,4 +33,8 @@ public interface TbContentMapper {
     int updateByPrimaryKeyWithBLOBs(TbContent record);
 
     int updateByPrimaryKey(TbContent record);
+    
+    List<TbContent> selectByContent(Long categoryId);
+    
+    
 }

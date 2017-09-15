@@ -1,9 +1,12 @@
 package cn.e3mall.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import cn.e3mall.common.pojo.SearchItem;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.pojo.TbItemExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface TbItemMapper {
     int countByExample(TbItemExample example);
@@ -27,4 +30,6 @@ public interface TbItemMapper {
     int updateByPrimaryKeySelective(TbItem record);
 
     int updateByPrimaryKey(TbItem record);
+    
+    List<SearchItem> getItemList();
 }

@@ -11,8 +11,10 @@
 	<!-- 暴露服务的地址 -->
 	<dubbo:protocol name="dubbo" port="20880" />
 	<!-- 注册中心的地址 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.234.129:2181" />
+	<dubbo:registry protocol="zookeeper" address="192.168.25.129:2181" />
 	<!-- 暴露服务 -->
 	<dubbo:service interface="cn.e3mall.service.ItemService"
 		ref="itemServiceImpl" timeout="600000" />
+	<dubbo:service interface="cn.e3mall.service.ItemCatService"
+		ref="itemCatServiceImpl" timeout="600000" />
 </beans>
