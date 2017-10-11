@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<context:component-scan base-package="cn.e3mall.sso.service" />
+	<!-- 暴露的服务名 -->
+	<dubbo:application name="e3-sso" />
+	<!-- 暴露服务的地址 -->
+	<dubbo:protocol name="dubbo" port="20883" />
+	<!-- 注册中心的地址 -->
+	<dubbo:registry protocol="zookeeper" address="192.168.25.129:2181" />
+	<!-- 暴露服务 -->
+	<dubbo:service interface="cn.e3mall.sso.service.RegisterService"
+		ref="registerServiceImpl" timeout="600000" />
+	<!-- 暴露服务 -->
+	<dubbo:service interface="cn.e3mall.sso.service.LoginService"
+		ref="loginServiceImpl" timeout="600000" />
+		<!-- 暴露服务 -->
+	<dubbo:service interface="cn.e3mall.sso.service.TokenService"
+		ref="tokenServiceImpl" timeout="600000" />
+</beans>

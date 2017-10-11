@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/css/index.css?v=2016071312">
 	<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="/js/global_index.js"></script>
-<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+	<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
     top: 18px !important;
     left: 50% !important;

@@ -11,11 +11,13 @@
 	<mvc:default-servlet-handler />
 	<context:property-placeholder location="classpath:conf/resource.properties"/>
 	
+	<bean class="cn.e3mall.search.exception.GlobalExceptionResolver"></bean>
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
-	</bean>
+	</bean>	
 	<dubbo:application name="e3-search-web" />
 	<!-- 注册中心的地址 -->
 	<dubbo:registry protocol="zookeeper" address="192.168.25.129:2181" />

@@ -12,6 +12,7 @@
 		<module>e3-search-interface</module>
 		<module>e3-search-Service</module>
 	</modules>
+	
 	<!-- 配置tomcat插件 -->
 	<build>
 		<plugins>
@@ -20,7 +21,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/</path>
-					<port>8085</port>
+					<port>8084</port>
 				</configuration>
 			</plugin>
 		</plugins>
